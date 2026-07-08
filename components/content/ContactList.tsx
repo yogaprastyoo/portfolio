@@ -1,3 +1,5 @@
+import { CornerBrackets } from "@/components/ui/CornerBrackets";
+
 type ContactItem = {
   label: string;
   description: string;
@@ -17,14 +19,7 @@ export function ContactList({ items }: { items: ContactItem[] }) {
               rel={isExternal ? "noopener noreferrer" : undefined}
               className="group relative flex min-h-24 items-center justify-between gap-4 border border-neutral-300 px-6 py-4 outline-none hover:border-accent focus-visible:border-accent motion-safe:transition-colors motion-safe:duration-200 md:px-8 dark:border-neutral-700"
             >
-              <span
-                aria-hidden
-                className="pointer-events-none absolute top-2 left-2 h-4 w-4 border-t-2 border-l-2 border-accent opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 motion-safe:transition-opacity motion-safe:duration-200"
-              />
-              <span
-                aria-hidden
-                className="pointer-events-none absolute right-2 bottom-2 h-4 w-4 border-r-2 border-b-2 border-accent opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 motion-safe:transition-opacity motion-safe:duration-200"
-              />
+              <CornerBrackets />
               <span>
                 <span className="block text-xl font-semibold group-hover:text-accent group-focus-visible:text-accent motion-safe:transition-colors md:text-2xl">
                   {item.label}
