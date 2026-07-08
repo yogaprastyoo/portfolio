@@ -1,3 +1,4 @@
+import { PillNav } from "@/components/layout/PillNav";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
@@ -47,6 +48,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
   return (
     <main id="main-content" className="py-12">
+      <PillNav />
       <Container>
         <div className="mx-auto max-w-3xl">
           <p className="text-sm text-neutral-500">

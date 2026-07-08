@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { ThemeToggle } from "./ThemeToggle";
 
 const messages: [string, string][] = [
   ["Welcome to", "my web portfolio"],
@@ -32,19 +31,16 @@ export function Header() {
             <p className="tabular-nums">{year}</p>
           </div>
 
-          <div className="flex items-center gap-4">
-            <div className="flex">
-              <Link href="/#contact" className={`${pillButtonClasses} pr-7 pl-5`}>
-                Contact
-              </Link>
-              <Link
-                href="/#about"
-                className={`${pillButtonClasses} -ml-4 bg-white pr-5 pl-6 dark:bg-neutral-950`}
-              >
-                Me
-              </Link>
-            </div>
-            <ThemeToggle />
+          <div className="flex">
+            <Link href="/#contact" className={`${pillButtonClasses} pr-7 pl-5`}>
+              Contact
+            </Link>
+            <Link
+              href="/#about"
+              className={`${pillButtonClasses} -ml-4 bg-white pr-5 pl-6 dark:bg-neutral-950`}
+            >
+              Me
+            </Link>
           </div>
         </div>
       </Container>
