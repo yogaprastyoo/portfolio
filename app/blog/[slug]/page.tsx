@@ -14,7 +14,11 @@ export async function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
   if (!post) return {};
@@ -44,12 +48,17 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   return (
     <main id="main-content" className="py-12">
       <Container>
-        <p className="text-sm text-neutral-500">
-          {formatDate(post.publishedAt)} · {readingTime(post.bodyMd)} min read
-        </p>
-        <h1 className="mt-2 text-3xl font-medium">{post.title}</h1>
-        <Prose html={html} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
+        <div className="mx-auto max-w-3xl">
+          <p className="text-sm text-neutral-500">
+            {formatDate(post.publishedAt)} · {readingTime(post.bodyMd)} min read
+          </p>
+          <h1 className="mt-2 text-3xl font-medium">{post.title}</h1>
+          <Prose html={html} />
+        </div>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }}
+        />
       </Container>
     </main>
   );

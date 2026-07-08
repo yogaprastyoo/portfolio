@@ -10,6 +10,7 @@ export const SITE = {
   email: "mail@yogaprastyo.com",
   github: "https://github.com/yogaprastyoo",
   linkedin: "https://www.linkedin.com/in/yogaprastyoo",
+  birthDate: "2005-10-12",
 };
 
 export function personJsonLd() {

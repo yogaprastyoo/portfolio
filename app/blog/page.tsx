@@ -12,14 +12,23 @@ export default async function BlogPage() {
   return (
     <main id="main-content" className="py-12">
       <Container>
-        <h1 className="text-3xl font-medium">Blog</h1>
-        {posts.length === 0 ? (
-          <div className="mt-8">
-            <EmptyState title="First post coming soon" message="Writing is in progress — check back later." />
-          </div>
-        ) : (
-          <div className="mt-4">{posts.map((p) => <PostCard key={p.id} post={p} />)}</div>
-        )}
+        <div className="max-w-3xl">
+          <h1 className="text-3xl font-medium">Blog</h1>
+          {posts.length === 0 ? (
+            <div className="mt-8">
+              <EmptyState
+                title="First post coming soon"
+                message="Writing is in progress — check back later."
+              />
+            </div>
+          ) : (
+            <div className="mt-4">
+              {posts.map((p) => (
+                <PostCard key={p.id} post={p} />
+              ))}
+            </div>
+          )}
+        </div>
       </Container>
     </main>
   );

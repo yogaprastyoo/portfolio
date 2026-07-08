@@ -7,10 +7,16 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-:root { color-scheme: light; }
-.dark { color-scheme: dark; }
+:root {
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
+}
 
-.dark { --color-accent: #ff6b6b; }
+.dark {
+  --color-accent: #ff6b6b;
+}
 
 body {
   @apply bg-white text-neutral-900 antialiased dark:bg-neutral-950 dark:text-neutral-100;

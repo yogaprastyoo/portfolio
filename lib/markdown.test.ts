@@ -7,9 +7,7 @@ describe("renderMarkdown", () => {
     expect(html).toContain("<table>");
   });
   it("allows raw HTML while stripping script tags (sanitization)", async () => {
-    const html = await renderMarkdown(
-      "Press <kbd>Ctrl</kbd> <script>alert(1)</script>",
-    );
+    const html = await renderMarkdown("Press <kbd>Ctrl</kbd> <script>alert(1)</script>");
     expect(html).toContain("<kbd>Ctrl</kbd>");
     expect(html).not.toContain("<script>");
   });

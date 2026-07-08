@@ -14,7 +14,9 @@ export default async function ProjectsPage() {
       <Container>
         <h1 className="text-3xl font-medium">Projects</h1>
         {projects.length === 0 ? (
-          <div className="mt-8"><EmptyState title="No projects yet" message="Check back soon." /></div>
+          <div className="mt-8">
+            <EmptyState title="No projects yet" message="Check back soon." />
+          </div>
         ) : (
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {projects.map((p, i) => (

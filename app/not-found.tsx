@@ -10,9 +10,15 @@ export default function NotFound() {
           This page doesn&apos;t exist (or isn&apos;t published yet).
         </p>
         <p className="mt-6 flex gap-4 text-sm">
-          <Link href="/" className="underline underline-offset-4">← Home</Link>
-          <Link href="/blog" className="underline underline-offset-4">Blog</Link>
-          <Link href="/projects" className="underline underline-offset-4">Projects</Link>
+          <Link href="/" className="underline underline-offset-4">
+            ← Home
+          </Link>
+          <Link href="/blog" className="underline underline-offset-4">
+            Blog
+          </Link>
+          <Link href="/projects" className="underline underline-offset-4">
+            Projects
+          </Link>
         </p>
       </Container>
     </main>
