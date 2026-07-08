@@ -9,14 +9,22 @@ export default async function OgImage({ params }: { params: Promise<{ slug: stri
   const { slug } = await params;
   const post = await getPostBySlug(slug);
   return new ImageResponse(
-    (
-      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column",
-        justifyContent: "space-between", padding: 64, background: "#0f0f0f", color: "#fff" }}>
-        <div style={{ fontSize: 28 }}>YogaPras. / blog</div>
-        <div style={{ fontSize: 64, fontWeight: 600 }}>{post?.title ?? SITE.name}</div>
-        <div style={{ fontSize: 28, color: "#a3a3a3" }}>{SITE.url.replace("https://", "")}</div>
-      </div>
-    ),
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        padding: 64,
+        background: "#0f0f0f",
+        color: "#fff",
+      }}
+    >
+      <div style={{ fontSize: 28 }}>YogaPras. / blog</div>
+      <div style={{ fontSize: 64, fontWeight: 600 }}>{post?.title ?? SITE.name}</div>
+      <div style={{ fontSize: 28, color: "#a3a3a3" }}>{SITE.url.replace("https://", "")}</div>
+    </div>,
     size,
   );
 }

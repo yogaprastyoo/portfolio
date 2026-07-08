@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import { Badge } from "@/components/ui/Badge";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SkillGroup } from "@/components/content/SkillGroup";
@@ -6,6 +8,7 @@ import { ContactList } from "@/components/content/ContactList";
 import { ProjectCard } from "@/components/content/ProjectCard";
 import { getFeaturedProjects, getSkills } from "@/lib/queries";
 import { SITE } from "@/lib/seo";
+import { calculateAge } from "@/lib/utils";
 import type { SkillCategory } from "@/lib/types";
 
 export const revalidate = 300;
@@ -42,26 +45,68 @@ export default async function HomePage() {
           </Link>
         </section>
 
-        <section id="about" className="reveal scroll-mt-8 border-t border-dashed border-neutral-300 py-24 md:py-32 dark:border-neutral-700">
+        <section
+          id="about"
+          className="reveal scroll-mt-8 border-t border-dashed border-neutral-300 py-24 md:py-32 dark:border-neutral-700"
+        >
           <SectionHeading number="01" title="Get to know me" />
-          <p className="mt-6 text-base leading-7 text-neutral-700 dark:text-neutral-300">
-            Hello! I&apos;m Yoga Prastyo Bayu Laksono — a student and Full Stack Developer
-            experienced in building scalable backend systems and interactive web apps. My passion
-            lies in IoT architecture, DevOps practices, and humanoid robotics with ROS.
+          <div className="mt-8 flex items-center gap-5">
+            <Image
+              src="/yoga-prastyo.webp"
+              alt="Portrait of Yoga Prastyo Bayu Laksono"
+              width={160}
+              height={160}
+              className="size-16 rounded-lg object-cover md:size-20"
+            />
+            <p className="text-5xl font-bold tracking-tight md:text-6xl">Pras.</p>
+          </div>
+          <ul className="mt-6 flex flex-wrap gap-2">
+            {[
+              `${calculateAge(SITE.birthDate)}y`,
+              "Student",
+              "Full Stack",
+              "IoT & DevOps",
+              "Humanoid Robot",
+            ].map((fact) => (
+              <li key={fact}>
+                <Badge>{fact}</Badge>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 max-w-3xl text-base leading-7 text-neutral-700 dark:text-neutral-300">
+            Hello! I&apos;m Yoga Prastyo Bayu Laksono, a Full Stack Developer and Robotics Engineer
+            experienced in building scalable backend systems and interactive web applications. I
+            specialize in <strong>Laravel REST APIs</strong>, <strong>React</strong>,{" "}
+            <strong>Next.js</strong>, and <strong>ThingsBoard</strong> for IoT platforms. My passion
+            lies in <strong>IoT architecture</strong>, <strong>DevOps</strong> practices, and{" "}
+            <strong>robotic humanoid</strong> systems using <strong>ROS</strong>. With hands-on
+            experience in <strong>C</strong>, <strong>C++</strong>, <strong>C#</strong>,{" "}
+            <strong>MQTT</strong>, and <strong>Docker</strong>, I continuously strive to build
+            innovative and efficient solutions that bridge software and hardware.
           </p>
         </section>
 
-        <section id="skills" className="reveal scroll-mt-8 border-t border-dashed border-neutral-300 py-24 md:py-32 dark:border-neutral-700">
+        <section
+          id="skills"
+          className="reveal scroll-mt-8 border-t border-dashed border-neutral-300 py-24 md:py-32 dark:border-neutral-700"
+        >
           <SectionHeading number="02" title="Skills & technologies" />
           <div className="mt-6 space-y-6">
             {(Object.keys(CATEGORY_LABELS) as SkillCategory[]).map((cat) => (
-              <SkillGroup key={cat} title={CATEGORY_LABELS[cat]} skills={current.filter((s) => s.category === cat)} />
+              <SkillGroup
+                key={cat}
+                title={CATEGORY_LABELS[cat]}
+                skills={current.filter((s) => s.category === cat)}
+              />
             ))}
             <SkillGroup title="Currently learning" skills={learning} />
           </div>
         </section>
 
-        <section id="project" className="reveal scroll-mt-8 border-t border-dashed border-neutral-300 py-24 md:py-32 dark:border-neutral-700">
+        <section
+          id="project"
+          className="reveal scroll-mt-8 border-t border-dashed border-neutral-300 py-24 md:py-32 dark:border-neutral-700"
+        >
           <SectionHeading number="03" title="Check out my latest work" />
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {projects.map((p, i) => (
@@ -73,7 +118,10 @@ export default async function HomePage() {
           </Link>
         </section>
 
-        <section id="contact" className="reveal scroll-mt-8 border-t border-dashed border-neutral-300 py-24 md:py-32 dark:border-neutral-700">
+        <section
+          id="contact"
+          className="reveal scroll-mt-8 border-t border-dashed border-neutral-300 py-24 md:py-32 dark:border-neutral-700"
+        >
           <SectionHeading number="04" title="Let's turn ideas into reality" />
           <ContactList
             items={[

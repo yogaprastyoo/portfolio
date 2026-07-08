@@ -4,8 +4,9 @@ import { SITE } from "@/lib/seo";
 export const revalidate = 300;
 
 function escapeXml(s: string): string {
-  return s.replace(/[<>&'"]/g, (c) =>
-    ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", "'": "&apos;", '"': "&quot;" })[c]!,
+  return s.replace(
+    /[<>&'"]/g,
+    (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", "'": "&apos;", '"': "&quot;" })[c]!,
   );
 }
 

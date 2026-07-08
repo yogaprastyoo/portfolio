@@ -14,10 +14,7 @@ export function PillNav() {
       <ul className="flex items-center gap-5 rounded-full border border-neutral-400/60 bg-white/80 px-6 py-3 backdrop-blur-md sm:gap-8 sm:px-10 dark:border-neutral-600/60 dark:bg-neutral-950/80">
         {links.map((l) => (
           <li key={l.href}>
-            <Link
-              href={l.href}
-              className="text-sm underline-offset-8 hover:underline sm:text-base"
-            >
+            <Link href={l.href} className="text-sm underline-offset-8 hover:underline sm:text-base">
               {l.label}
             </Link>
           </li>
