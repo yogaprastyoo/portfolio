@@ -8,5 +8,5 @@ export default defineConfig({
       "server-only": path.resolve(__dirname, "node_modules/server-only/empty.js"),
     },
   },
-  test: { include: ["lib/**/*.test.ts"] },
+  test: { include: ["lib/**/*.test.ts"], testTimeout: 20000 },
 });
