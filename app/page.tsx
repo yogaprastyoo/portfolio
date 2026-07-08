@@ -26,23 +26,23 @@ export default async function HomePage() {
   return (
     <main id="main-content">
       <Container>
-        <section className="py-20">
-          <h1 className="text-4xl font-medium leading-tight sm:text-6xl">
+        <section className="py-24 md:py-36">
+          <h1 className="enter text-[clamp(3rem,10vw,7rem)] leading-[0.95] font-medium tracking-tight">
             Yoga Prastyo<span className="text-accent">.</span>
           </h1>
-          <p className="mt-4 max-w-xl text-base text-neutral-700 dark:text-neutral-300">
+          <p className="enter enter-2 mt-8 max-w-xl text-base text-neutral-700 dark:text-neutral-300">
             Full Stack Developer building REST APIs, IoT systems, and humanoid robots — experienced
             in Laravel, React, Next.js, ThingsBoard, and ROS.
           </p>
           <Link
             href="/projects"
-            className="mt-8 inline-block border border-current px-5 py-3 text-sm hover:bg-neutral-900 hover:text-white dark:hover:bg-neutral-100 dark:hover:text-neutral-900"
+            className="enter enter-3 mt-10 inline-block border border-current px-6 py-3 text-sm hover:bg-neutral-900 hover:text-white motion-safe:transition-colors dark:hover:bg-neutral-100 dark:hover:text-neutral-900"
           >
             View projects
           </Link>
         </section>
 
-        <section id="about" className="scroll-mt-8 border-t border-dashed border-neutral-300 py-16 dark:border-neutral-700">
+        <section id="about" className="reveal scroll-mt-8 border-t border-dashed border-neutral-300 py-24 md:py-32 dark:border-neutral-700">
           <SectionHeading number="01" title="Get to know me" />
           <p className="mt-6 text-base leading-7 text-neutral-700 dark:text-neutral-300">
             Hello! I&apos;m Yoga Prastyo Bayu Laksono — a student and Full Stack Developer
@@ -51,7 +51,7 @@ export default async function HomePage() {
           </p>
         </section>
 
-        <section id="skills" className="scroll-mt-8 border-t border-dashed border-neutral-300 py-16 dark:border-neutral-700">
+        <section id="skills" className="reveal scroll-mt-8 border-t border-dashed border-neutral-300 py-24 md:py-32 dark:border-neutral-700">
           <SectionHeading number="02" title="Skills & technologies" />
           <div className="mt-6 space-y-6">
             {(Object.keys(CATEGORY_LABELS) as SkillCategory[]).map((cat) => (
@@ -61,7 +61,7 @@ export default async function HomePage() {
           </div>
         </section>
 
-        <section id="project" className="scroll-mt-8 border-t border-dashed border-neutral-300 py-16 dark:border-neutral-700">
+        <section id="project" className="reveal scroll-mt-8 border-t border-dashed border-neutral-300 py-24 md:py-32 dark:border-neutral-700">
           <SectionHeading number="03" title="Check out my latest work" />
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {projects.map((p, i) => (
@@ -73,7 +73,7 @@ export default async function HomePage() {
           </Link>
         </section>
 
-        <section id="contact" className="scroll-mt-8 border-t border-dashed border-neutral-300 py-16 dark:border-neutral-700">
+        <section id="contact" className="reveal scroll-mt-8 border-t border-dashed border-neutral-300 py-24 md:py-32 dark:border-neutral-700">
           <SectionHeading number="04" title="Let's turn ideas into reality" />
           <ContactList
             items={[
