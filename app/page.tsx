@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SkillGroup } from "@/components/content/SkillGroup";
+import { ContactList } from "@/components/content/ContactList";
 import { ProjectCard } from "@/components/content/ProjectCard";
 import { getFeaturedProjects, getSkills } from "@/lib/queries";
 import { SITE } from "@/lib/seo";
@@ -74,27 +75,25 @@ export default async function HomePage() {
 
         <section id="contact" className="scroll-mt-8 border-t border-dashed border-neutral-300 py-16 dark:border-neutral-700">
           <SectionHeading number="04" title="Let's turn ideas into reality" />
-          <ul className="mt-6 divide-y divide-neutral-200 dark:divide-neutral-800">
-            {[
-              { label: "Email", href: `mailto:${SITE.email}` },
-              { label: "LinkedIn", href: SITE.linkedin },
-              { label: "GitHub", href: SITE.github },
-            ].map((c) => {
-              const isExternal = c.href.startsWith("http");
-              return (
-                <li key={c.label}>
-                  <a
-                    href={c.href}
-                    target={isExternal ? "_blank" : undefined}
-                    rel={isExternal ? "noopener noreferrer" : undefined}
-                    className="flex items-center justify-between py-4 text-2xl hover:text-accent"
-                  >
-                    {c.label} <span aria-hidden>↗</span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
+          <ContactList
+            items={[
+              {
+                label: "Email",
+                description: "The fastest way to reach me — I usually reply within a day.",
+                href: `mailto:${SITE.email}`,
+              },
+              {
+                label: "LinkedIn",
+                description: "Let's connect professionally.",
+                href: SITE.linkedin,
+              },
+              {
+                label: "GitHub",
+                description: "See what I'm building right now.",
+                href: SITE.github,
+              },
+            ]}
+          />
         </section>
       </Container>
     </main>
