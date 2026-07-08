@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
+Personal portfolio and blog — home, projects, and blog pages built with the
+Next.js App Router and rendered via ISR from content stored in Supabase.
 
-First, run the development server:
+## Stack
+
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS v4
+- Supabase (Postgres + Studio for content editing)
+- Vercel (hosting)
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # start the dev server at http://localhost:3000
+npm run test        # unit tests (Vitest)
+npm run e2e          # end-to-end tests (Playwright)
+npm run lint         # ESLint
+npm run typecheck    # tsc --noEmit
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Copy `.env.example` to `.env.local` and fill in your Supabase project's URL
+and anon key:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+```
 
-## Learn More
+## Editing content
 
-To learn more about Next.js, take a look at the following resources:
+All content (projects, blog posts) is managed in Supabase Studio, not in the
+codebase. Edits made there appear on the live site within about 5 minutes,
+via Next.js ISR revalidation — no redeploy needed.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Docs
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The original spec and implementation plan for this rebuild live in the v1
+repo, [`yogaprastyoo/yogaprastyoo.github.io`](https://github.com/yogaprastyoo/yogaprastyoo.github.io),
+under `docs/superpowers/`.
