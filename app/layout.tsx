@@ -4,7 +4,7 @@ import { ThemeProvider } from "next-themes";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SkipLink } from "@/components/layout/SkipLink";
-import { personJsonLd, SITE, websiteJsonLd } from "@/lib/seo";
+import { jsonLdScript, personJsonLd, SITE, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([personJsonLd(), websiteJsonLd()]),
+            __html: jsonLdScript([personJsonLd(), websiteJsonLd()]),
           }}
         />
       </body>

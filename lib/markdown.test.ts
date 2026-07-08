@@ -21,5 +21,6 @@ describe("renderMarkdown", () => {
   it("syntax-highlights fenced code", async () => {
     const html = await renderMarkdown("```ts\nconst a = 1;\n```");
     expect(html).toContain("shiki");
+    expect(html).toContain("--shiki-dark");
   });
 });

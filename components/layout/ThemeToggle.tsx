@@ -8,7 +8,8 @@ export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
   // eslint-disable-next-line react-hooks/set-state-in-effect -- mounted-guard avoids SSR/CSR theme hydration mismatch
   useEffect(() => setMounted(true), []);
-  if (!mounted) return <button aria-hidden className="size-9" />;
+  if (!mounted)
+    return <button type="button" tabIndex={-1} disabled aria-hidden className="size-9" />;
 
   const isDark = resolvedTheme === "dark";
   return (

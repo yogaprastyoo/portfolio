@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Prose } from "@/components/content/Prose";
 import { renderMarkdown } from "@/lib/markdown";
 import { getProjectBySlug, getProjects } from "@/lib/queries";
-import { breadcrumbJsonLd, SITE } from "@/lib/seo";
+import { breadcrumbJsonLd, jsonLdScript, SITE } from "@/lib/seo";
 
 export const revalidate = 300;
 
@@ -68,7 +68,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           />
         )}
         <Prose html={html} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(crumbs) }} />
       </Container>
     </main>
   );

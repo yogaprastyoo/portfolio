@@ -15,8 +15,8 @@ export async function GET() {
     .map(
       (p) => `<item>
   <title>${escapeXml(p.title)}</title>
-  <link>${SITE.url}/blog/${p.slug}</link>
-  <guid>${SITE.url}/blog/${p.slug}</guid>
+  <link>${SITE.url}/blog/${escapeXml(p.slug)}</link>
+  <guid>${SITE.url}/blog/${escapeXml(p.slug)}</guid>
   <description>${escapeXml(p.excerpt)}</description>
   <pubDate>${new Date(p.publishedAt).toUTCString()}</pubDate>
 </item>`,

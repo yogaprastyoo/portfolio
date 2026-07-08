@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Prose } from "@/components/content/Prose";
 import { renderMarkdown } from "@/lib/markdown";
 import { getPostBySlug, getPosts } from "@/lib/queries";
-import { blogPostingJsonLd, breadcrumbJsonLd, SITE } from "@/lib/seo";
+import { blogPostingJsonLd, breadcrumbJsonLd, jsonLdScript, SITE } from "@/lib/seo";
 import { formatDate, readingTime } from "@/lib/utils";
 
 export const revalidate = 300;
@@ -49,7 +49,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         </p>
         <h1 className="mt-2 text-3xl font-medium">{post.title}</h1>
         <Prose html={html} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
       </Container>
     </main>
   );
