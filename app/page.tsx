@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SkillGroup } from "@/components/content/SkillGroup";
 import { ContactList } from "@/components/content/ContactList";
 import { ProjectCard } from "@/components/content/ProjectCard";
+import { PillNav } from "@/components/layout/PillNav";
 import { getFeaturedProjects, getSkills } from "@/lib/queries";
 import { SITE } from "@/lib/seo";
 import { calculateAge } from "@/lib/utils";
@@ -44,7 +45,11 @@ export default async function HomePage() {
             View projects
           </Link>
         </section>
+      </Container>
 
+      <PillNav />
+
+      <Container>
         <section
           id="about"
           className="reveal scroll-mt-8 border-t border-dashed border-neutral-300 py-24 md:py-32 dark:border-neutral-700"

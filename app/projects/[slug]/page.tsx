@@ -1,3 +1,4 @@
+import { PillNav } from "@/components/layout/PillNav";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -44,6 +45,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main id="main-content" className="py-12">
+      <PillNav />
       <Container>
         <div className="mx-auto max-w-3xl">
           <h1 className="text-3xl font-medium">{project.title}</h1>

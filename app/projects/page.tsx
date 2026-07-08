@@ -1,3 +1,4 @@
+import { PillNav } from "@/components/layout/PillNav";
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { ProjectCard } from "@/components/content/ProjectCard";
@@ -11,6 +12,7 @@ export default async function ProjectsPage() {
   const projects = await getProjects();
   return (
     <main id="main-content" className="py-12">
+      <PillNav />
       <Container>
         <h1 className="text-3xl font-medium">Projects</h1>
         {projects.length === 0 ? (
