@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Header } from "@/components/layout/Header";
+import { PillNav } from "@/components/layout/PillNav";
 import { Footer } from "@/components/layout/Footer";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { jsonLdScript, personJsonLd, SITE, websiteJsonLd } from "@/lib/seo";
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute="class" enableSystem>
           <SkipLink />
           <Header />
+          <PillNav />
           {children}
           <Footer />
         </ThemeProvider>

@@ -6,7 +6,6 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SkillGroup } from "@/components/content/SkillGroup";
 import { ContactList } from "@/components/content/ContactList";
 import { ProjectCard } from "@/components/content/ProjectCard";
-import { PillNav } from "@/components/layout/PillNav";
 import { getFeaturedProjects, getSkills } from "@/lib/queries";
 import { SITE } from "@/lib/seo";
 import { calculateAge } from "@/lib/utils";
@@ -30,7 +29,7 @@ export default async function HomePage() {
   return (
     <main id="main-content">
       <Container>
-        <section className="py-24 md:py-36">
+        <section className="pt-16 pb-24 md:pt-24 md:pb-36">
           <h1 className="enter text-[clamp(3rem,10vw,7rem)] leading-[0.95] font-medium tracking-tight">
             Yoga Prastyo<span className="text-accent">.</span>
           </h1>
@@ -45,11 +44,7 @@ export default async function HomePage() {
             View projects
           </Link>
         </section>
-      </Container>
 
-      <PillNav />
-
-      <Container>
         <section
           id="about"
           className="reveal scroll-mt-8 border-t border-dashed border-neutral-300 py-24 md:py-32 dark:border-neutral-700"

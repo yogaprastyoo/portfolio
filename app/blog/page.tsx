@@ -1,4 +1,3 @@
-import { PillNav } from "@/components/layout/PillNav";
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PostCard } from "@/components/content/PostCard";
@@ -12,7 +11,6 @@ export default async function BlogPage() {
   const posts = await getPosts();
   return (
     <main id="main-content" className="py-12">
-      <PillNav />
       <Container>
         <div className="max-w-3xl">
           <h1 className="text-3xl font-medium">Blog</h1>
