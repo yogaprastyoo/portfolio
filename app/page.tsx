@@ -79,18 +79,21 @@ export default async function HomePage() {
               { label: "Email", href: `mailto:${SITE.email}` },
               { label: "LinkedIn", href: SITE.linkedin },
               { label: "GitHub", href: SITE.github },
-            ].map((c) => (
-              <li key={c.label}>
-                <a
-                  href={c.href}
-                  rel="noopener noreferrer"
-                  target={c.href.startsWith("http") ? "_blank" : undefined}
-                  className="flex items-center justify-between py-4 text-2xl hover:text-accent"
-                >
-                  {c.label} <span aria-hidden>↗</span>
-                </a>
-              </li>
-            ))}
+            ].map((c) => {
+              const isExternal = c.href.startsWith("http");
+              return (
+                <li key={c.label}>
+                  <a
+                    href={c.href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                    className="flex items-center justify-between py-4 text-2xl hover:text-accent"
+                  >
+                    {c.label} <span aria-hidden>↗</span>
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </section>
       </Container>
