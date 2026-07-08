@@ -1,10 +1,15 @@
 "use client";
 
+import { useEffect } from "react";
 import { Container } from "@/components/ui/Container";
 
-export default function ErrorPage({ reset }: { error: Error; reset: () => void }) {
+export default function ErrorPage({ error, reset }: { error: Error; reset: () => void }) {
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
+
   return (
-    <main className="py-24">
+    <main id="main-content" className="py-24">
       <Container>
         <h1 className="text-2xl font-medium">Something went wrong</h1>
         <p className="mt-2 text-base text-neutral-600 dark:text-neutral-400">

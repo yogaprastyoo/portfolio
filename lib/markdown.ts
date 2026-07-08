@@ -13,7 +13,10 @@ const processor = unified()
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
   .use(rehypeSanitize)
-  .use(rehypeShiki, { themes: { light: "github-light", dark: "github-dark" } })
+  .use(rehypeShiki, {
+    themes: { light: "github-light", dark: "github-dark" },
+    defaultColor: false,
+  })
   .use(rehypeStringify);
 
 export async function renderMarkdown(md: string): Promise<string> {
